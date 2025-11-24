@@ -66,6 +66,10 @@ public:
 
     /*User callable function to set maxAllowedElevationAngleDeg*/
     void setMaxAllowedAzimuthAngleDeg(int myMaxAllowedAzimuthAngleDeg);
+    
+    void setRootTopic(char const* myRootTopic);
+    
+    void init_publishers(std::shared_ptr<rclcpp::Node>);
 
     // void setNodeHandle(std::shared_ptr<rclcpp::Node> nh);
 
@@ -134,6 +138,8 @@ private:
     /*Contains the max_allowed_azimuth_angle_deg (points with azimuth angles
       outside +/- max_allowed_azimuth_angle_deg will be removed)*/
     int maxAllowedAzimuthAngleDeg;
+
+    char const* rootTopic;
 
     /*Mutex protected variable which synchronizes threads*/
     int countSync;
